@@ -1,0 +1,14 @@
+|molecule |src   |chain  |resrange |pdb_offset |rb |
+|mcm2     |5u8s  |2      |1,END    |0          |1  |
+|mcm3     |5u8s  |3      |1,END    |0          |1  |
+|mcm4     |5u8s  |4      |1,END    |0          |1  |
+|mcm5     |5u8s  |5      |1,END    |0          |1  |
+|mcm6     |5u8s  |6      |1,END    |0          |1  |
+|mcm7     |5u8s  |7      |1,END    |0          |1  |
+#
+|psf1     |5u8s  |A      |1,END    |0          |2  |
+|psf2     |5u8s  |B      |1,END    |0          |2  |
+|psf3     |5u8s  |C      |1,END    |0          |2  |
+|sld5     |5u8s  |D      |1,END    |0          |2  |
+#
+|cdc45    |5u8s  |E      |1,END    |0          |3  |
