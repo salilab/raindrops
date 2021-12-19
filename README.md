@@ -4,6 +4,8 @@
 
 This module implements the RAInDrOPS algorithm for segmenting protein complexes optimally into rigid bodies, based on experimental distance and/or contact data, prior to structural sampling. Currently, only chemical crosslinks are utilized to dissect complexes into rigid bodies for integrative modeling, but other distance data can be easily incorporated. The rigid body definitions are presented as a text file in a format nearly similar to [PMI topology files](https://integrativemodeling.org/2.16.0/doc/ref/classIMP_1_1pmi_1_1topology_1_1TopologyReader.html),  which can be manually edited to easily construct more complex topologies.
 
+Note, this module is *not* Python-2 compatible.
+
 <br>
 
 ## Dependencies
