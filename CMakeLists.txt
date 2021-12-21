@@ -1,5 +1,5 @@
 # Are we running cmake from this directory (out of tree build) ?
-project(raindrops)
+project(imp_module)
 
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
   cmake_minimum_required(VERSION 2.8.3)
