@@ -29,10 +29,10 @@ class TestRaindrops(IMP.test.TestCase):
         
         min_ss = 4
         min_loop, max_loop = 5, 8
-        p = IMP.raindrops.protein_graph.Partition("data/5u8s.pdb",
-                                              regions=regions, 
-                                              min_ss=min_ss,
-                                              min_loop=min_loop, max_loop=max_loop)
+        p = IMP.raindrops.protein_graph.Partition(
+            self.get_input_file_name("5u8s.pdb"),
+            regions=regions, min_ss=min_ss, min_loop=min_loop,
+            max_loop=max_loop)
         p.run()
         for k, v in p.segments.items():
             ss, loop = v
@@ -53,7 +53,8 @@ class TestRaindrops(IMP.test.TestCase):
                           2: ["A", "B", "C", "D"],
                           3: ["E"]}
         
-        g = _get_graph("data", "data/topology_3.txt")    
+        g = _get_graph(self.get_input_file_name(""),
+                       self.get_input_file_name("topology_3.txt"))
         rbdict = g.get_rb_dict()
         
         assert sorted(rbdict) == [1,2,3]
@@ -68,7 +69,8 @@ class TestRaindrops(IMP.test.TestCase):
         Test that the compactness score works correctly
         on a protein graph with unit weights for all edges.
         """
-        g = _get_graph("data", "data/topology_3.txt")
+        g = _get_graph(self.get_input_file_name(""),
+                       self.get_input_file_name("topology_3.txt"))
 
         # set weights of 1 for all edges
         for (u,v) in g.edges:
@@ -91,7 +93,8 @@ class TestRaindrops(IMP.test.TestCase):
             assert scores[(u,v)] == 1.0 - float(u.rb == v.rb)
         
     def _test_subgraph_connectivity_restraint(self):
-        g = _get_graph("data", "data/topology_3.txt")
+        g = _get_graph(self.get_input_file_name(""),
+                       self.get_input_file_name("topology_3.txt"))
 
         # set weights of 1 for all nodes
         for (u,v) in g.edges:
@@ -116,20 +119,21 @@ class TestRaindrops(IMP.test.TestCase):
         Test that the crosslink restraints correctly
         maps crosslinks to available structural components.
         """
-        g = _get_graph("data", "data/topology_3.txt")
+        g = _get_graph(self.get_input_file_name(""),
+                       self.get_input_file_name("topology_3.txt"))
         
         # crosslink restraint
-        xlr = IMP.raindrops.restraints.Crosslink(g, "data/xl.csv", weight=1.0,
-                                             label="test_crosslink",
-                                             linker_cutoffs={"DSS": 28.0})
+        xlr = IMP.raindrops.restraints.Crosslink(
+            g, self.get_input_file_name("xl.csv"), weight=1.0,
+            label="test_crosslink", linker_cutoffs={"DSS": 28.0})
         
         # the mappable crosslinks were saved from a previous run and 
-        # stored back as xl.csv in the data folder
+        # stored back as xl.csv in the input folder
         tmp_fn = "mappable_xl.csv"
         df_tmp = pd.read_csv(tmp_fn)
         xl_tuples_tmp = [tuple(df_tmp.loc[i]) for i in range(len(df_tmp))]
         
-        df = pd.read_csv("data/xl.csv")
+        df = pd.read_csv(self.get_input_file_name("xl.csv"))
         xl_tuples = [tuple(df.loc[i]) for i in range(len(df))]
         
         assert all([xl_tuples[i] == xl_tuples_tmp[i]
@@ -143,7 +147,8 @@ class TestRaindrops(IMP.test.TestCase):
         Test the score calculation for the crosslink restraint
         for a graph with unit weights for all nodes.
         """
-        g = _get_graph("data", "data/topology_3.txt")
+        g = _get_graph(self.get_input_file_name(""),
+                       self.get_input_file_name("topology_3.txt"))
         
         # set weights of 1 for all nodes
         g.set_node_weights([1.0] * len(g))
@@ -152,12 +157,12 @@ class TestRaindrops(IMP.test.TestCase):
         g.set_rbs([1] * len(g))
         
         # crosslinks
-        df = pd.read_csv("data/xl.csv")
+        df = pd.read_csv(self.get_input_file_name("xl.csv"))
         xls = [tuple(df.loc[i]) for i in range(len(df))]
         
-        xlr = IMP.raindrops.restraints.Crosslink(g, "data/xl.csv", weight=1.0,
-                                             label="test_crosslink",
-                                             linker_cutoffs={"DSS": 28.0})
+        xlr = IMP.raindrops.restraints.Crosslink(
+            g, self.get_input_file_name("xl.csv"), weight=1.0,
+            label="test_crosslink", linker_cutoffs={"DSS": 28.0})
         os.remove("mappable_xl.csv")
         
         # calculate score manually
