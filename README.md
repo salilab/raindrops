@@ -1,3 +1,6 @@
+[![Build Status](https://github.com/salilab/raindrops/workflows/build/badge.svg?branch=main)](https://github.com/salilab/raindrops/actions?query=workflow%3Abuild)
+[![codecov](https://codecov.io/gh/salilab/raindrops/branch/main/graph/badge.svg)](https://codecov.io/gh/salilab/raindrops)
+
 ![](icon.png)
 
 # RAInDrOPS : **R**igid-body **A**ssignment in **In**tegrative **D**ete**R**mination **O**f  **P**rotein **S**tructure
