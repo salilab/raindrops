@@ -678,8 +678,8 @@ class Graph(nx.Graph):
             return ValueError("No crosslinks found")
 
         xls = [(u, v, sat) for (u, v, sat) in self.xl_data.values()
-               if u.weight >= node_weight_cutoff and
-                  v.weight >= node_weight_cutoff]
+               if u.weight >= node_weight_cutoff
+               and v.weight >= node_weight_cutoff]
 
         rbs = sorted(self.get_rb_dict())
         stats = OrderedDict()
