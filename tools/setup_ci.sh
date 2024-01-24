@@ -23,8 +23,8 @@ cd ${temp_dir}
 
 # STRIDE
 if [ ! -e ${bin_dir}/stride ]; then
-  wget http://webclu.bio.wzw.tum.de/stride/stride.tar.gz
-  tar -xvzf stride.tar.gz
+  wget https://salilab.org/stride/Stride_src.tar.Z
+  tar -xvzf Stride_src.tar.Z
   make
   mv stride ${bin_dir}/stride
 fi
