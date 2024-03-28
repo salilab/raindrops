@@ -17,7 +17,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         submodules: true
     - name: Setup conda and dependencies
@@ -33,4 +33,4 @@ jobs:
         make
         ./setup_environment.sh pytest --cov=.. --cov-branch --cov-report=xml -v ../test/test*.py
         flake8 ../pyext/src/
-    - uses: codecov/codecov-action@v3
+    - uses: codecov/codecov-action@v4
