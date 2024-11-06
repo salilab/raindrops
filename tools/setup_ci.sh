@@ -12,7 +12,7 @@ python_version=$2
 bin_dir=${top_dir}/bin
 mkdir -p ${bin_dir}
 
-conda config --remove channels defaults  # get conda-forge, not main, packages
+conda config --remove channels defaults || :  # get conda-forge, not main, packages
 conda create --yes -q -n python${python_version} -c salilab -c conda-forge python=${python_version} pip biopython networkx dill pandas scipy matplotlib imp-nightly eigen swig cmake
 eval "$(conda shell.bash hook)"
 conda activate python${python_version}
