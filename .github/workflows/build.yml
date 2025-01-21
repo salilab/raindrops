@@ -35,6 +35,6 @@ jobs:
         make
         ./setup_environment.sh pytest --cov=.. --cov-branch --cov-report=xml -v ../test/test*.py
         flake8 ../pyext/src/
-    - uses: codecov/codecov-action@v4
+    - uses: codecov/codecov-action@v5
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
