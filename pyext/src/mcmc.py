@@ -700,7 +700,7 @@ class CrosslinkedLoopMover(Mover):
 
     def move(self, temp=1.0):
         """
-        Make indepedent random walk Metropolis moves on the weight of all
+        Make independent random walk Metropolis moves on the weight of all
         crosslinked loop nodes.
 
         Args:

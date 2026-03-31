@@ -185,7 +185,7 @@ class GraphRenderer:
             outfn = os.path.join(self.outdir, "chroma.cxc")
 
         # color all nodes to default color first
-        # this automtically colors all edges to the default color
+        # this automatically colors all edges to the default color
         s += "color :1-%d rgb(%.3f, %.3f, %.3f)\n" % \
              (len(self.graph.nodes), *DEFAULT_EDGE_COLOR)
         s += "\n"

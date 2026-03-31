@@ -34,7 +34,7 @@ class Trimmer(Select):
         Constructor
 
         Args:
-        regions (Region namedtuple): tuple containing (soure name, chain id,
+        regions (Region namedtuple): tuple containing (source name, chain id,
         start residue, end residue) for a region.
         """
 
@@ -285,7 +285,7 @@ class Partition:
 class Node:
     """
     Class definition for a node of a protein graph. A node represents
-    one or more protein segments obtained by parttioning on the basis
+    one or more protein segments obtained by partitioning on the basis
     of secondary structure.
     """
 
@@ -515,7 +515,7 @@ class Graph(nx.Graph):
         # edge weight normalization:
         # based on the Blatt, Wiseman, Domany paper
         a = np.mean(neigh_dist)
-        print("Averge neighborhood radius: %2.2f A" % a)
+        print("Average neighborhood radius: %2.2f A" % a)
         for i, e in enumerate(edges):
             d = e[-1]["weight"]
             new_weight = np.exp(-0.5 * (d**2) / (a**2))

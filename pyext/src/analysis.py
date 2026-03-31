@@ -371,7 +371,7 @@ class Analysis:
 
         ax2.set_ylabel("iteration", fontsize=15)
         ax2.set_ylabel("number", fontsize=15)
-        ax2.set_title("Avg. excess connnected subgraphs", fontsize=15)
+        ax2.set_title("Avg. excess connected subgraphs", fontsize=15)
 
         n_rb_0 = []
         for n, d in enumerate(self.anneal_dirs):

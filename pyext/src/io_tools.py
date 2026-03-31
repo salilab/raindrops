@@ -201,7 +201,7 @@ class RigidBodyPdbWriter:
         Args:
         rb (int): ID of rigid body.
 
-        outdir (str): Ouput directory.
+        outdir (str): Output directory.
         """
 
         target_rb = self.rb_reassignment_map[rb]
