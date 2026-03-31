@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/salilab/raindrops/workflows/build/badge.svg?branch=main)](https://github.com/salilab/raindrops/actions?query=workflow%3Abuild)
+[![Build Status](https://github.com/salilab/raindrops/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/salilab/raindrops/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/salilab/raindrops/branch/main/graph/badge.svg)](https://codecov.io/gh/salilab/raindrops)
 
 ![](icon.png)
