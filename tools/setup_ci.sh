@@ -23,6 +23,8 @@ cd ${temp_dir}
 if [ ! -e ${bin_dir}/stride ]; then
   wget https://salilab.org/stride/Stride_src.tar.Z
   tar -xvzf Stride_src.tar.Z
+  wget https://salilab.org/stride/stride-gcc.patch
+  patch -p1 < stride-gcc.patch
   make
   mv stride ${bin_dir}/stride
 fi
